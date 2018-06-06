@@ -10,13 +10,13 @@ class ShortUrlsController < ApplicationController
 
 	def create
     formatted_url = remove_url_prefix(params)
-    url = ShortUrl.where(formatted_url: formatted_url).first_or_create
-    redirect_to root_path
+    url = ShortUrl.where(formatted_url: formatted_url).first_or_create(url_params)
+    redirect_to short_url_path(url.id)
 	end
 
 	private
 
 	def url_params
-    params.require(:url).permit(:given_url)
+    params.require(:short_url).permit(:given_url)
 	end
 end
