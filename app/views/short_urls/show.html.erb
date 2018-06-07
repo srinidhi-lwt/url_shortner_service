@@ -4,6 +4,9 @@
       <h4>Given URL</h4>
     </div>
      <div class="col-md-3">
+      <h4>Formatted URL</h4>
+    </div>
+     <div class="col-md-3">
       <h4>Short URL</h4>
     </div>
   </div>
@@ -11,7 +14,10 @@
     <div class="col-md-3">
       <h4> <%= @url.given_url %> </h4>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
+      <h4> <%= @url.formatted_url %> </h4>
+    </div>
+    <div class="col-md-3">
       <h4> <%= link_to application_host(@url), add_url_prefix(@url), target: '_blank' %></h4>
     </div>
     <div class="col-md-1">
