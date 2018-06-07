@@ -20,6 +20,8 @@ class ShortUrlsController < ApplicationController
   end
 
   def destroy
+    @url.destroy
+    redirect_to root_path
   end
 
   private
