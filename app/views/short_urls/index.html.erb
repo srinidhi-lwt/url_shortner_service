@@ -19,7 +19,11 @@
         <h4><%= url.formatted_url %></h4>
       </div>
       <div class="col-md-3">
-        <h4><%= link_to application_host(url), add_url_prefix(url), target: '_blank' %></h4>
+        <h4>
+        <%= simple_form_for '', url: url_views_path, html: { target: 'new_section_frame' }  do |f| %>
+          <%= f.input :short_url_id, as: :hidden, input_html: { value: url.id } %>
+          <%= f.submit url.shortened_url, class: 'btn' %>
+        <% end %>
       </div>
       <div class="col-md-3">
         <h4><%= link_to "Delete", short_url_path(url.id), method: :delete, class: "btn btn-danger" %></h4>
