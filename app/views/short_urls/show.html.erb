@@ -21,12 +21,7 @@
       <h4> <%= @url.formatted_url %> </h4>
     </div>
     <div class="col-md-3">
-      <h4>
-        <%= simple_form_for '', url: url_views_path, html: { target: 'new_section_frame' }  do |f| %>
-          <%= f.input :short_url_id, as: :hidden, input_html: { value: @url.id } %>
-          <%= f.submit @url.shortened_url, class: 'btn' %>
-        <% end %>
-      </h4>
+      <h4> <%= link_to application_host(@url), url_view_path(@url.id), class: "btn", target: '_blank' %></h4>
     </div>
     <div class="col-md-1">
       <h4><%= @url.url_views.count %></h4>

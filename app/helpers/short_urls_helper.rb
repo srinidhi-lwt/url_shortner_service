@@ -5,7 +5,7 @@ module ShortUrlsHelper
   end
 
   def application_host(url)
-    "#{ENV['APPLICATION_HOST']}/#{url.shortened_url}"
+    "#{request.host}/#{url.shortened_url}"
   end
 
   def add_url_prefix(url)

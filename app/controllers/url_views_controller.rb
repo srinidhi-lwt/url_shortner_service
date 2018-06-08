@@ -2,8 +2,8 @@ class UrlViewsController < ApplicationController
   include ApplicationHelper
   include ShortUrlsHelper
 
-	def create
-    url = ShortUrl.find(params[:short_url_id])
+	def show
+    url = ShortUrl.find(params[:id])
     url.url_views.create(url_views_params)
     redirect_to add_url_prefix(url)
 	end
