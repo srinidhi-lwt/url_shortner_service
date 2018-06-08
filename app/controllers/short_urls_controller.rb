@@ -1,6 +1,7 @@
 class ShortUrlsController < ApplicationController
   include ShortUrlsHelper
   before_action :find_url, only: [:show, :destroy]
+  before_action :validate_url, only: [:create]
 
   def index
     @urls = ShortUrl.all
@@ -32,5 +33,9 @@ class ShortUrlsController < ApplicationController
 
   def find_url
     @url = ShortUrl.find(params[:id])
+  end
+
+  def validate_url
+    return redirect_to root_path if params[:short_url][:given_url].blank?
   end
 end
