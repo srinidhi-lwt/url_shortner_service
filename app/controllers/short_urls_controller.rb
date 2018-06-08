@@ -36,6 +36,7 @@ class ShortUrlsController < ApplicationController
   end
 
   def validate_url
-    return redirect_to root_path if params[:short_url][:given_url].blank?
+    flash[:danger] = 'URL cannot be empty'
+    return redirect_to new_short_url_path if params[:short_url][:given_url].blank?
   end
 end
