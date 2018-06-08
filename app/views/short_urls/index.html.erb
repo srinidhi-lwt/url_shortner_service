@@ -9,6 +9,9 @@
      <div class="col-md-3">
       <h4>Short URL</h4>
     </div>
+     <div class="col-md-2">
+      <h4>No. of Views</h4>
+    </div>
   </div>
   <% @urls.each do |url| %>
     <div class="row well">
@@ -25,8 +28,11 @@
           <%= f.submit url.shortened_url, class: 'btn' %>
         <% end %>
       </div>
-      <div class="col-md-3">
-        <h4><%= link_to "Delete", short_url_path(url.id), method: :delete, class: "btn btn-danger" %></h4>
+      <div class="col-md-2">
+        <h4><%= url.url_views.count %></h4>
+      </div>
+      <div class="col-md-1">
+        <h4><%= link_to "Show stats", short_url_path(url.id), class: "btn btn-primary" %></h4>
       </div>
     </div>
   <% end %>
