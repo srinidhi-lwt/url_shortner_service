@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+	  <nav class="navbar navbar-inverse">
+	    <div class="container-fluid">
+	      <div class="navbar-header">
+	        <a class="navbar-brand" href=<%= root_path %>>URL Shortner</a>
+	      </div>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href=<%= new_short_url_path %>><span class="glyphicon glyphicon-log-in"></span> New URL</a></li>
+	      </ul>
+	    </div>
+	  </nav>
+
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+
+  <%= yield %>
   </body>
 </html>

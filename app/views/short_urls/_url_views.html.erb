@@ -1,0 +1,33 @@
+<div class="row">
+  <h4> URL Statistics </h4>
+</div>
+<div class="row well">
+  <div class="col-md-3">
+    <h4>IP address</h4>
+  </div>
+   <div class="col-md-3">
+    <h4>Browser Info</h4>
+  </div>
+  <div class="col-md-3">
+    <h4>Browser Platform</h4>
+  </div>
+  <div class="col-md-3">
+    <h4>URL viewed at</h4>
+  </div>
+</div>
+<% @url.url_views.each do |url| %>
+  <div class="row">
+    <div class="col-md-3">
+      <h4><%= url.ip_address %></h4>
+    </div>
+    <div class="col-md-3">
+      <h4><%= url.browser_info %></h4>
+    </div>
+    <div class="col-md-3">
+      <h4><%= url.browser_platform %></h4>
+    </div>
+     <div class="col-md-3">
+      <h4><%= url.created_at %></h4>
+    </div>
+  </div>
+<% end %>
